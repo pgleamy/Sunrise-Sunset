@@ -6,7 +6,7 @@ A collection of scripts that gather and visualize data on sunrise and sunset tim
 
 The project consists of three main parts:
 
-1. **Data Collection Script**: This script collects data on sunrise and sunset times from a reliable source for all days of 2023.
+1. **Data Collection Script**: This script collects data on sunrise and sunset times from a reliable source for all days of 2023. It takes about 10 minutes to run and create the sun_data.py file.
 
 2. **Data File**: This is a JSON file that stores the collected data. Each entry in the file represents one day and contains the date, sunrise time, and sunset time. Other information is also in the file but it is not used for the visualization.
 
