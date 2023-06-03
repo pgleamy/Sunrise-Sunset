@@ -29,5 +29,3 @@ Then create the visualization with :
 ```bash
 python visualization.py
 ```
-
-** I created this application entirely via prompts to GPT-4. I wrote no code myself, although I did check all the code. **
