@@ -18,10 +18,13 @@ In the future, I'll modify the scripts to prompt the user for their location and
 
 ## How to Run
 
+## I've created the functions for it, but I haven't implemented the City search functions in the rest of the code yet. So it doesn't fully work yet. Tomorrow...
 To run the data collection script, use the following command. It takes about 12 minutes to gather all the information and write it out to disk. This only needs to happen once:
 
 ```bash
 python data_collection.py
+python city_sorter.py
+python city_select.py
 ```
 
 Then create the visualization with :
