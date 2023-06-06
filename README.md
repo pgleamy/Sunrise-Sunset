@@ -2,7 +2,7 @@
 
 ## Description
 
-Gathers and visualizes data on sunrise and sunset times throughout the year for a given city. The data is gathered from the API provided by sunrise-sunset.org and visualized using matplotlib.
+**currently not working, fixing later tonight** Gathers and visualizes data on sunrise and sunset times throughout the year for a given city. The data is gathered from the API provided by sunrise-sunset.org and visualized using matplotlib.
 
 ## How to Run
 
