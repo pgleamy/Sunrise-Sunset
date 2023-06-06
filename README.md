@@ -1,34 +1,24 @@
-# Sunrise and Sunset Times Visualization
+# Sunrise-Sunset Visualization
 
-A collection of scripts that gather and visualize data on sunrise and sunset times throughout the year. The data is specific to Calgary, Alberta, but future modifications will allow users to input their own location and timezone.
+## Description
 
-## Project Structure
-
-The project consists of three main parts:
-
-1. **Data Collection Script**: This script collects data on sunrise and sunset times from a reliable source for all days of 2023. It takes about 10 minutes to run and create the sun_data.py file.
-
-2. **Data File**: This is a python file that stores the collected data as a nested dictionary. Each entry represents one day and contains the date, sunrise time, and sunset time. Other information is also in the dictionary but it is not used for the visualization.
-
-3. **Visualization Script**: This script reads the data from the data file and creates a scatter plot of sunrise and sunset times throughout the year. The x-axis represents the date and the y-axis represents the time of day. The plot also includes vertical lines indicating the start and end of daylight saving time.
-
-## Future Work
-
-In the future, I'll modify the scripts to prompt the user for their location and timezone when collecting the data and save this location and timezone information to a .env file. This will allow the plot to reflect sunrise and sunset times for any location and timezone, not just Calgary, Alberta MST.
+Gathers and visualizes data on sunrise and sunset times throughout the year for a given city. The data is gathered from the API provided by sunrise-sunset.org and visualized using matplotlib.
 
 ## How to Run
 
-## I've created the functions for it, but I haven't implemented the City search functions in the rest of the code yet. So it doesn't fully work yet. Tomorrow...
-To run the data collection script, use the following command. It takes about 12 minutes to gather all the information and write it out to disk. This only needs to happen once:
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Run the main script by typing `python main.py` in your terminal.
+4. If running for the first time, you will be prompted to select a city. The city data will be saved and reused for future runs. If you want to visualize a different city, then delete the "city.json" and "collected_sun_data.py" files.
+5. The script will collect sunrise and sunset data for the selected city for the current year. This process will take about 8 minutes.
+6. Once the data is collected, a visualization will be displayed. You can maximize the visualization and export/save it.
 
-```bash
-python data_collection.py
-python city_sorter.py
-python city_select.py
-```
+## Example Output
 
-Then create the visualization with :
+Here is an example of a visualization for Calgary, Alberta:
 
-```bash
-python visualization.py
-```
+![Calgary Sunrise-Sunset Visualization](utilities/Calgary-AB-23023.png)
+
+This chart shows the sunrise and sunset times throughout the year. The blue dots represent sunset times, and the orange dots represent sunrise times. The vertical green line represents the current date. The red lines show the changes for daylight savings.
+
+ENJOY!
