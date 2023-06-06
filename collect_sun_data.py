@@ -3,6 +3,7 @@ import time
 from datetime import date, timedelta
 from tqdm import tqdm
 import os
+import json
 
 #Collects sunrise and sunset data for the current year for the given latitude and longitude from the sunrise-sunset.org API. Results in sun_data.py as a dictionary. This takes 5-6 minutes to run because of the API rate limit of 1 call per second.
 def collect_sun_data(lat, lng):
@@ -15,6 +16,16 @@ def collect_sun_data(lat, lng):
 
     # Number of days in the year
     delta = end_date - start_date
+    
+    # Make a request to the GeoNames Timezone API
+    response = requests.get(f"http://api.geonames.org/timezoneJSON?lat={lat}&lng={lng}&sunsetsunrise")
+
+    # Parse the JSON response
+    data = json.loads(response.text)
+
+    # The timezone of the location is in data['timezoneId']
+    timezone_str = data['timezoneId']
+    print(timezone_str)
 
     sun_dict = {}
 

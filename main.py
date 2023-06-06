@@ -47,7 +47,9 @@ def main():
         collect_sun_data(latitude, longitude)
         
     # Load the visualisation module
-            # Access the elements of the dictionary
+    # Access the elements of the dictionary
+    with open('city.json', 'r') as f:
+        city_data = json.load(f)
     city_name = city_data["name"]
     country = city_data["country"]
     longitude = city_data["longitude"]
