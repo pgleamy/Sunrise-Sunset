@@ -17,7 +17,7 @@ Gathers and visualizes data on sunrise and sunset times throughout the year for 
 
 Here is an example of a visualization for Calgary, Alberta:
 
-![Calgary Sunrise-Sunset Visualization](utilities/Calgary-AB-23023.png)
+![Calgary Sunrise-Sunset Visualization](utilities/Calgary-AB-2023.png)
 
 This chart shows the sunrise and sunset times throughout the year. The blue dots represent sunset times, and the orange dots represent sunrise times. The vertical green line represents the current date. The red lines show the changes for daylight savings.
 
