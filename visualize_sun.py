@@ -1,13 +1,16 @@
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib.ticker import FuncFormatter
-from sun_data import sun_data
 from dateutil.parser import parse
 from datetime import datetime, timedelta
 from pytz import timezone
 from dateutil.relativedelta import relativedelta, SU
 
 def visualize_sunrise_sunset(city, country, lat, lng):
+    
+    # Import sun_data.py. Is here because it is not possible to import a file that is created during runtime
+    from sun_data import sun_data
+    
     # Convert time strings to datetime objects
     def time_to_datetime(time_str):
         return parse(time_str)

@@ -4,7 +4,7 @@ from fuzzywuzzy import process
 
 def get_best_match(city_name, cities):
     # Get the best matches to city_name in cities
-    matches = process.extract(city_name, cities, limit=10)
+    matches = process.extract(city_name, cities, limit=25)
     return matches
 
 # Select city with fuzzy matching. Returns tuple with city name, country, longitude, and latitude.
@@ -49,7 +49,7 @@ def select_city():
             selection = int(input('Enter the number of your choice: '))
             if selection <= i:
                 city = match_cities[selection-1]
-                #print(f"City: {city['name']}, Country: {city['country']}, Longitude: {city['lng']}, Latitude: {city['lat']}")
+                print(f"City: {city['name']}, Country: {city['country']}, Longitude: {city['lng']}, Latitude: {city['lat']}")
                 return city['name'], city['country'], city['lng'], city['lat']
             else:
                 print('City not found.')

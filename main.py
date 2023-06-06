@@ -21,6 +21,10 @@ def main():
             "longitude": city[2],
             "latitude": city[3]
         }
+
+        # Define latitude and longitude
+        latitude = city_dict["latitude"]
+        longitude = city_dict["longitude"]
         
         # Save city to file called city.json
         with open('city.json', 'w', encoding='utf-8') as f:
