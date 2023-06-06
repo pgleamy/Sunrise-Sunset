@@ -47,6 +47,11 @@ def main():
         collect_sun_data(latitude, longitude)
         
     # Load the visualisation module
+            # Access the elements of the dictionary
+    city_name = city_data["name"]
+    country = city_data["country"]
+    longitude = city_data["longitude"]
+    latitude = city_data["latitude"]
     visualize_sunrise_sunset(city_name, country, latitude, longitude)
     
 if __name__ == '__main__':

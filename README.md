@@ -2,7 +2,7 @@
 
 ## Description
 
-**currently not working, fixing later tonight** Gathers and visualizes data on sunrise and sunset times throughout the year for a given city. The data is gathered from the API provided by sunrise-sunset.org and visualized using matplotlib.
+Gathers and visualizes data on sunrise and sunset times throughout the year for a given city. The data is gathered from the API provided by sunrise-sunset.org and visualized using matplotlib.
 
 ## How to Run
 
@@ -19,6 +19,6 @@ Here is an example of a visualization for Calgary, Alberta:
 
 ![Calgary Sunrise-Sunset Visualization](utilities/Calgary-AB-2023.png)
 
-This chart shows the sunrise and sunset times throughout the year. The blue dots represent sunset times, and the orange dots represent sunrise times. The vertical green line represents the current date. The red lines show the changes for daylight savings.
+This chart shows the sunrise and sunset times throughout the year. The blue dots represent sunset times, and the orange dots represent sunrise times. The vertical green line represents the current date. The red lines show the changes for daylight savings. The closer you are to the equator the flatter the lines will be. If you are near the poles, well I don't know. I'll have to try it.
 
 ENJOY!
