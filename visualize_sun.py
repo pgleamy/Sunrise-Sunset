@@ -1,24 +1,24 @@
+from dateutil.parser import parse
+from dateutil.tz import gettz
+from matplotlib.ticker import FuncFormatter
+from dateutil.relativedelta import relativedelta, SU
+from datetime import datetime
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-from matplotlib.ticker import FuncFormatter
-from dateutil.parser import parse
-from datetime import datetime, timedelta
-from pytz import timezone
-from dateutil.relativedelta import relativedelta, SU
 
 def visualize_sunrise_sunset(city, country, lat, lng):
     
     # Import sun_data.py. Is here because it is not possible to import a file that is created during runtime
-    from sun_data import sun_data
+    from DATA.sun_data import sun_data
     
     # Convert time strings to datetime objects
     def time_to_datetime(time_str):
         return parse(time_str)
 
-    # Convert datetime.time to minutes past midnight
+    # Convert datetime object to minutes past midnight in local timezone
     def time_to_minutes(time_obj):
         return time_obj.hour * 60 + time_obj.minute + time_obj.second / 60
-
+        
     # Create lists for dates and sun positions
     data_items = list(sun_data.items())
     data_items.sort()  # Sort by date
@@ -28,15 +28,20 @@ def visualize_sunrise_sunset(city, country, lat, lng):
     sunset_times = []
 
     for date_str, sun_info in data_items:
+        # Skip the day if sunrise or sunset time is not available
+        if 'sunrise' not in sun_info or 'sunset' not in sun_info:
+            continue
+
+    for date_str, sun_info in data_items:
         dates.append(parse(date_str))
-        sunrise_time = time_to_minutes(time_to_datetime(sun_info['sunrise']).astimezone(timezone('America/Edmonton')).time())
-        sunset_time = time_to_minutes(time_to_datetime(sun_info['sunset']).astimezone(timezone('America/Edmonton')).time())
+        sunrise_time = time_to_minutes(time_to_datetime(sun_info['sunrise']))
+        sunset_time = time_to_minutes(time_to_datetime(sun_info['sunset']))
         sunrise_times.append(sunrise_time)
         sunset_times.append(sunset_time)
 
     # Plot sunrise and sunset times
-    plt.scatter(dates, sunset_times, color='blue', label='Sunset')
-    plt.scatter(dates, sunrise_times, color='orange', label='Sunrise')
+    plt.scatter(dates, sunset_times, color='blue', label='Sunset', s=2)
+    plt.scatter(dates, sunrise_times, color='orange', label='Sunrise', s=2)
 
     # Set the y-axis to display times in 24-hour format
     def format_func(value, tick_number):
@@ -65,5 +70,3 @@ def visualize_sunrise_sunset(city, country, lat, lng):
     plt.title(f'Sunrise and Sunset Times in {city}, {country} for {datetime.now().year}')
     plt.legend()
     plt.show()
-
-

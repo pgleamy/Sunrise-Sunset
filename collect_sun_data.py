@@ -4,6 +4,7 @@ from datetime import date, timedelta
 from tqdm import tqdm
 import os
 import json
+from convert_to_local_tz import convert_tz
 
 #Collects sunrise and sunset data for the current year for the given latitude and longitude from the sunrise-sunset.org API. Results in sun_data.py as a dictionary. This takes 5-6 minutes to run because of the API rate limit of 1 call per second.
 def collect_sun_data(lat, lng):
@@ -24,8 +25,8 @@ def collect_sun_data(lat, lng):
     data = json.loads(response.text)
 
     # The timezone of the location is in data['timezoneId']
-    timezone_str = data['timezoneId']
-    print(timezone_str)
+    #timezone_str = data['timezoneId']
+    #print(timezone_str)
 
     sun_dict = {}
 
@@ -38,12 +39,14 @@ def collect_sun_data(lat, lng):
             sun_dict[day.isoformat()] = data['results']
         
         # Wait for 1 second before making the next API call to be gentle with the API calls
-        time.sleep(1)
+        time.sleep(2)
 
     # Write the dictionary to a Python file
-    with open('sun_data.py', 'w') as file:
+    with open('DATA\sun_data.py', 'w') as file:
         file.write(f"# This file contains sunrise and sunset data for the location with latitude {lat} and longitude {lng} for the year {current_year}\n")
         file.write("sun_data = ")
         file.write(str(sun_dict))
+        
+    convert_tz()
 
 

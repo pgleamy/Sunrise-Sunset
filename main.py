@@ -10,7 +10,7 @@ from visualize_sun import visualize_sunrise_sunset
 def main():
     
     # Check if city.json exists
-    if not os.path.exists('city.json'):
+    if not os.path.exists('DATA\city.json'):
         # If city.json does not exist, select city
         city = select_city()
         
@@ -27,11 +27,11 @@ def main():
         longitude = city_dict["longitude"]
         
         # Save city to file called city.json
-        with open('city.json', 'w', encoding='utf-8') as f:
+        with open('DATA\city.json', 'w', encoding='utf-8') as f:
             json.dump(city_dict, f, ensure_ascii=False, indent=4)
     else:
         # Load city data from city.json
-        with open('city.json', 'r') as f:
+        with open('DATA\city.json', 'r') as f:
             city_data = json.load(f)
 
         # Access the elements of the dictionary
@@ -40,15 +40,15 @@ def main():
         longitude = city_data["longitude"]
         latitude = city_data["latitude"]
         
-        print(f"\nLoaded {city_name}, {country} from city.json. To change City delete city.json and sun_data.py and run this program again.\n")
+        print(f"\nLoaded {city_name}, {country} from city.json. To change City delete contents of DATA directory.\n")
     
     # Get sun data for the City from sunrise_sunset.org if it hasn't already been collected
-    if not os.path.exists('sun_data.py'):
+    if not os.path.exists('DATA\sun_data.py'):
         collect_sun_data(latitude, longitude)
         
     # Load the visualisation module
     # Access the elements of the dictionary
-    with open('city.json', 'r') as f:
+    with open('DATA\city.json', 'r') as f:
         city_data = json.load(f)
     city_name = city_data["name"]
     country = city_data["country"]
