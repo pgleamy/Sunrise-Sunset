@@ -6,7 +6,7 @@
 - The API calls to obtain sunset/sunrise data are too fast and may trigger an API limit error (slowed API calls)
 - Reduced size of plot graph points so individual days are clear
 - Moved changeable data to the DATA directory
-- Not tested thoroughly yet... Currently starts with a visualization for Vancouver, Canada. Delete contents of DATA directory to start fresh.
+- Not tested thoroughly yet...
 
 
 ## Description
