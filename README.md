@@ -5,7 +5,7 @@
 - In locations where there is no daily sunset or sunrise for parts of the year, nothing should be plotted (near the pole regions. Not tested yet but new code is there)
 - The API calls to obtain sunset/sunrise data are too fast and may trigger an API limit error (slowed API calls)
 - Reduced size of plot graph points so individual days are clear
-- Move changeable data to the DATA directory
+- Moved changeable data to the DATA directory
 - Not tested thoroughly yet...
 
 
